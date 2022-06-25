@@ -11,24 +11,9 @@ function App() {
     const { name, value } = event.target;
 
     setContact((prevState) => {
-      if (name === "fName") {
-        return {
-          fName: value,
-          lName: prevState.lName,
-          email: prevState.email
-        };
-      } else if (name === "lName") {
-        return {
-          fName: prevState.fName,
-          lName: value,
-          email: prevState.email
-        };
-      } else {
-        return {
-          fName: prevState.fName,
-          lName: prevState.lName,
-          email: value
-        };
+      return {
+        ...contact,
+        [name]: value
       }
     });
   }
