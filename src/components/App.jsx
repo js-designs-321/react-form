@@ -9,15 +9,18 @@ function App() {
     setName(event.target.value); 
   }
 
-  function handleClick(){
+  function handleClick(event){
     setWelcomeName(name);
+    event.preventDefault();
   }
 
   return (
     <div className="container">
+    <form onClick={handleClick}>
       <h1>Hello {welcomeName}</h1>
       <input onChange={handler} type="text" placeholder="What's your name?" value={name}/>
-      <button onClick={handleClick}>Submit</button>
+      <button type="submit">Submit</button>
+    </form>
     </div>
   );
 }
